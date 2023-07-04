@@ -35,12 +35,21 @@ if (current_page == form_pages.length-1) {
 }
 function form_next(){
     save_values()
-    current_page += 1
+    console.log(form_pages[current_page+1].condition())
+    if (form_pages[current_page+1].condition()){
+        current_page -= 1
+    }
+    current_page += 2
+
     load_page()
 }
 function form_back(){
     save_values()
-    current_page -= 1
+    if (form_pages[current_page-1].condition()){
+        current_page += 1
+    }
+    current_page -= 2
+
     load_page()
 }
 
