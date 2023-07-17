@@ -92,3 +92,5 @@ var form_items = [
     "input_ids":["tute_level"]
 }
 ]
+
+var marking_notes = "Notes on marking hours go here"

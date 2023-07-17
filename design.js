@@ -13,11 +13,11 @@ for (let i = 0; i < form_items.length; i++){
 function load_page(){
 var page_title = form_pages[current_page]["title"]
 var page_content = ""
-for (let i = 0; i < form_items.length; i++) {
-    if (form_items[i].page_id == current_page) {
-        page_content += `<div>${form_items[i].content}</div>`
+    for (let i = 0; i < form_items.length; i++) {
+        if (form_items[i].page_id == current_page) {
+            page_content += `<div>${form_items[i].content}</div>`
+        }
     }
-}
 
 $("#q_heading").text(page_title)
 $("#q_content").html(page_content)
@@ -53,12 +53,30 @@ function form_back(){
     load_page()
 }
 
+function form_reset(){
+    location.reload()
+}
+
 function form_submit(){
     save_values()
     var hourslist = calculate_hours()
+    var hoursstring = ""
     for (i = 0; i < hourslist.length; i++){
         console.log(`${hourslist[i].paycode} x ${hourslist[i].count}`)
+        hoursstring += `<p>${hourslist[i].paycode} x ${hourslist[i].count}</p>`
     }
+load_results(hoursstring)
+}
+function load_results(content){
+    var page_title = "Results"
+    var page_content = ""
+page_content = `<div><span class="results">${content}</span></div><div><span class="results_note">${marking_notes}</span></div>`
+    
+    $("#q_heading").text(page_title)
+    $("#q_content").html(page_content)
+    load_values()
+
+    $("#next_back").html('<button onclick="form_reset()">Start Over</button>')
 
 }
 
