@@ -19,8 +19,10 @@ var page_content = ""
         }
     }
 
+
 $("#q_heading").text(page_title)
 $("#q_content").html(page_content)
+
 load_values()
 if (current_page == form_pages.length-1) {
     $("#next_back").html('<button onclick="form_back()">Back</button>')
@@ -29,7 +31,7 @@ if (current_page == form_pages.length-1) {
     $("#next_back").html('<button onclick="form_back()">Back</button>')
     $("#next_back").append('<button onclick="form_next()">Next</button>')
 } else {
-    $("#next_back").html('<input type="button" value="Next" onclick="form_next();">')
+    $("#next_back").html('<button onclick="form_next()">Next</button>')
 }
 
 }
@@ -70,7 +72,7 @@ load_results(hoursstring)
 function load_results(content){
     var page_title = "Results"
     var page_content = ""
-page_content = `<div><span class="results">${content}</span></div><div><span class="results_note">${marking_notes}</span></div>`
+page_content = `<div><span class="results">${content}</span></div><div><span class="results_note">${marking_notes}</span></div><div><span class="results_note">${contact_call}</span></div>`
     
     $("#q_heading").text(page_title)
     $("#q_content").html(page_content)

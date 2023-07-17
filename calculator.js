@@ -27,7 +27,8 @@ function calculate_hours(){
     }
     if (has_lect){
         hours.push(new Payline(`P0${paycodes.lect+lect_subt}`,13*inputs.lecture_number))
-        hours.push(new Payline("P04",13*(parseInt(inputs.lecture_rpt_number)+1)*inputs.lecture_number))}
+        if (inputs.lecture_rpt_number > 0){
+        hours.push(new Payline("P04",13*(parseInt(inputs.lecture_rpt_number)+1)*inputs.lecture_number))}}
 
     if (inputs.marking_level == "Routine"){
         hours.push(new Payline(`M0${paycodes.marking+phd_subt}`,"N/A (See below)"))

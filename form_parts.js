@@ -1,7 +1,7 @@
 var form_pages = [
 {
     "title": "Welcome",
-    "condition": ""
+    "condition": function(){return true}
 },
 {
     "title": "Union Membership",
@@ -45,8 +45,13 @@ var form_items = [
 {
     "name":"weekly_sessions_input",
     "page_id": 2,
-    "content":'<span class="content_text">Different Lectures:  </span><input type="number" id="lecture_number"></input><span class="content_text">Repeats per Lecture:  </span><input type="number" id="lecture_rpt_number"></input><span class="content_text">Tutorials:  </span><input type="number" id="tute_number"></input>',
+    "content":'<span class="content_text">Different Lectures:  </span><input type="number" id="lecture_number"></input><br><span class="content_text">Repeats per Lecture:  </span><input type="number" id="lecture_rpt_number"></input><br><span class="content_text">Tutorials:  </span><input type="number" id="tute_number"></input>',
     "input_ids": ["lecture_number","tute_number","lecture_rpt_number"]
+},
+{
+    "name":"weekly_sessions_note",
+    "page_id":2,
+    "content":'<span class="content_text">Repeats per lecture does not include the initial lecture.</span>'
 },
 {
     "name":"phd_question",
@@ -62,7 +67,7 @@ var form_items = [
 {  
     "name":"marking_hours_question",
     "page_id": 4,
-    "content":'<span class="content_text">Based on the above description, which category do you believe your marking will fit into? </span><select id="marking_level"><option value="Routine">Routine</option><option value="Supervisor">Supervisor</option></select>',
+    "content":'<span class="content_text">Based on the above description, which category do you believe your marking will fit into? </span><br><select id="marking_level"><option value="Routine">Routine</option><option value="Supervisor">Supervisor</option></select>',
     "input_ids":["marking_level"]
 },
 {
@@ -78,7 +83,7 @@ var form_items = [
 },{
     "name":"lecture_type_question",
     "page_id": 5,
-    "content": '<span class="content_text">Based on the above description, which category do you believe your lecturing will fit into? </span><select id="lect_level"><option value="Standard">Standard</option><option value="Significant/Developed">Significant/Developed</option></select>',
+    "content": '<span class="content_text">Based on the above description, which category do you believe your lecturing will fit into? </span><br><select id="lect_level"><option value="Standard">Standard</option><option value="Significant/Developed">Significant/Developed</option></select>',
     "input_ids":["lect_level"]
 },
 {
@@ -88,9 +93,10 @@ var form_items = [
 },{
     "name":"tute_type_question",
     "page_id": 6,
-    "content": '<span class="content_text">Based on the above description, which category do you believe your teaching will fit into? </span><select id="tute_level"><option value="Tutor">Tutor</option><option value="Demonstrator">Demonstrator</option></select>',
+    "content": '<span class="content_text">Based on the above description, which category do you believe your teaching will fit into? </span><br><select id="tute_level"><option value="Tutor">Tutor</option><option value="Demonstrator">Demonstrator</option></select>',
     "input_ids":["tute_level"]
 }
 ]
 
 var marking_notes = "Notes on marking hours go here"
+var contact_call = "If the results of this tool are different to your actual schedule, consider contacting the NTEU enforcement committee (add email?)"
